@@ -42,6 +42,11 @@ public class ProdutoController {
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	
+	@GetMapping("/valor/{valor}")
+	public ResponseEntity<List<Produto>> getByValor(@PathVariable String valor){
+		return ResponseEntity.ok(repository.findAllByValor(valor));
+	}
+	
 	@PostMapping
 	public ResponseEntity<Produto> post(@RequestBody Produto produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
