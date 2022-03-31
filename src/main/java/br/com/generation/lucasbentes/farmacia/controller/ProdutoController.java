@@ -1,5 +1,6 @@
 package br.com.generation.lucasbentes.farmacia.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/valor/{valor}")
-	public ResponseEntity<List<Produto>> getByValor(@PathVariable String valor){
+	public ResponseEntity<List<Produto>> getByValor(@PathVariable BigDecimal valor){
 		return ResponseEntity.ok(repository.findAllByValor(valor));
 	}
 	
